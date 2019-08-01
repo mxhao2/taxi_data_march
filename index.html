@@ -44,8 +44,8 @@
     <input id="stpats" type="button"  value="St. Patricks Day hourly data" style="position: absolute; bottom: 10px;"
     onclick="loadStPats();">
   </div>
-  <div style="text-align:right">
-    <input id="stpats" type="button" value="Map of the busiest 3 hours on St Patricks" style="position: absolute;bottom: 10px;"
+  <div style="position: absolute; right:300px; bottom:0;">
+    <input id="stpats" type="button" value="St Patricks from 6PM-8PM" style="position: absolute;bottom: 10px;"
     onclick="loadMap();">
   </div>
 
@@ -122,6 +122,24 @@ function loadMap(){
     .attr("cy", function (d) { return projection([d.dropoff_longitude, d.dropoff_latitude])[1]; })
     .attr("r", "3px")
     })
+    svg.append("text")
+    .attr("x",-450)
+    .attr("y", 100)
+    .text("This is a map plot of the number of taxi")
+    svg.append("text")
+    .attr("x",-450)
+    .attr("y", 120)
+    .text("rides during the 3 busiest hours of St Patricks (6PM-8PM)")
+
+    svg.append("text")
+    .attr("x",-450)
+    .attr("y", 160)
+    .text("Red points are pickup locations")
+
+    svg.append("text")
+    .attr("x",-450)
+    .attr("y", 180)
+    .text("Green points are dropoff locations")
   })
 }
 function loadMarch(){
@@ -168,6 +186,31 @@ function loadMarch(){
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Number of Taxi Rides");
+
+      svg.append("text")
+      .attr("x",-370)
+      .attr("y", 100)
+      .text("This is a plot of the number of taxi ")
+      svg.append("text")
+      .attr("x",-370)
+      .attr("y", 120)
+      .text("rides in the month of March in NYC in 2016")
+
+
+      svg.append("text")
+      .attr("x",-370)
+      .attr("y", 160)
+      .text("Mouse over a point in the graph for more info")
+
+      svg.append("text")
+      .attr("x",-370)
+      .attr("y", 400)
+      .text("Click the middle button to see data for rides during")
+
+      svg.append("text")
+      .attr("x",-370)
+      .attr("y", 420)
+      .text("the 72 hour period surrounding St Patricks Day")
       svg.append("text")
             .attr("x", (width / 2))
             .attr("y", 0 - (margin.top / 2))
@@ -278,7 +321,7 @@ function loadStPats(){
           .text("Hour");
       svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
+        .attr("y", -100)
         .attr("x",0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
@@ -305,6 +348,34 @@ function loadStPats(){
       .style("border-width", "1px")
       .style("border-radius", "5px")
       .style("padding", "10px")
+
+      svg.append("text")
+      .attr("x",-450)
+      .attr("y", 100)
+      .text("This is a plot of the number of taxi ")
+      svg.append("text")
+      .attr("x",-450)
+      .attr("y", 120)
+      .text("rides 72 hour period surrounding St Patricks")
+
+
+      svg.append("text")
+      .attr("x",-450)
+      .attr("y", 160)
+      .text("Mouse over a point in the graph for more info")
+
+      svg.append("text")
+      .attr("x",-450)
+      .attr("y", 400)
+      .text("Click the far right button to see a map of rides during")
+
+      svg.append("text")
+      .attr("x",-450)
+      .attr("y", 420)
+      .text("the 3 busiest hours of St. Patricks Day")
+
+
+
 
       var mouseover = function(d) {
         tooltip
